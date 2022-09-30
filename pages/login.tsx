@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-import { supabase } from "../lib/supabase";
-import { useUser } from "../context/user";
-import { Button } from "primereact/button";
+import { Button } from 'primereact/button';
+import { useUser } from '../context/user';
 
 const Login = () => {
   const { loginWithGoogle } = useUser();

@@ -1,14 +1,14 @@
-import { createContext, useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
-import { supabase } from "../lib/supabase";
-import { User } from "@supabase/supabase-js";
+import { createContext, useState, useEffect, useContext } from 'react';
+import { useRouter } from 'next/router';
+import { User } from '@supabase/supabase-js';
+import { supabase } from '../lib/supabase';
 
 type UserContext = {
   user: User | null;
   loginWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
   isLoading: boolean;
-}
+};
 
 const UserContext = createContext<UserContext | null>(null);
 
@@ -23,9 +23,9 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
       if (sessionUser) {
         const { data: profile } = await supabase
-          .from("profile")
-          .select("*")
-          .eq("id", sessionUser.id)
+          .from('profile')
+          .select('*')
+          .eq('id', sessionUser.id)
           .single();
 
         setUser({
@@ -44,19 +44,19 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     });
   }, []);
 
-  console.log({ user })
+  console.log({ user });
 
   useEffect(() => {
-    fetch("/api/set-supabase-cookie", {
+    fetch('/api/set-supabase-cookie', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        event: user ? "SIGNED_IN" : "SIGNED_OUT",
+        event: user ? 'SIGNED_IN' : 'SIGNED_OUT',
         session: supabase.auth.session(),
       }),
-    })
+    });
     /*axios.post("/api/set-supabase-cookie", {
       event: user ? "SIGNED_IN" : "SIGNED_OUT",
       session: supabase.auth.session(),
@@ -80,14 +80,14 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
   const loginWithGoogle = async () => {
     await supabase.auth.signIn({
-      provider: "google",
+      provider: 'google',
     });
   };
 
   const logout = async () => {
     await supabase.auth.signOut();
     setUser(null);
-    router.push("/");
+    router.push('/');
   };
 
   const exposed = {
@@ -104,10 +104,10 @@ export const useUser = () => {
   const context = useContext(UserContext);
 
   if (context === null) {
-    throw new Error("useUser must be within UserProvider")
+    throw new Error('useUser must be within UserProvider');
   }
 
-  return context
-}
+  return context;
+};
 
 export { UserProvider };

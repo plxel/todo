@@ -1,7 +1,3 @@
-const Goals = () => (
-  <div>
-    TODO Goals page
-  </div>
-)
+const Goals = () => <div>TODO Goals page</div>;
 
 export default Goals;

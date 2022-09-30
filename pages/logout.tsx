@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useUser } from "../context/user";
+import { useEffect } from 'react';
+import { useUser } from '../context/user';
 
 const Logout = () => {
   const { logout } = useUser();

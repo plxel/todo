@@ -1,3 +1,47 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:react/recommended",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react-hooks", "prefer-arrow-functions", "unused-imports"],
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    //"no-unused-vars": [2, { "ignoreRestSiblings": true }], // https://eslint.org/docs/rules/no-unused-vars
+    "unused-imports/no-unused-imports": "error", // https://github.com/sweepline/eslint-plugin-unused-imports/blob/master/README.md
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": ["plugin:@typescript-eslint/recommended", "plugin:import/typescript"],
+      "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        // "@typescript-eslint/no-unused-vars": [2, { "ignoreRestSiblings": true }],
+        "no-use-before-define": 0,
+        "@typescript-eslint/no-use-before-define": 2,
+        "react/prop-types": 0,
+        "@typescript-eslint/no-unused-vars": "off",
+        //"no-unused-vars": [2, { "ignoreRestSiblings": true }], // https://eslint.org/docs/rules/no-unused-vars
+        "unused-imports/no-unused-imports": "error" // https://github.com/sweepline/eslint-plugin-unused-imports/blob/master/README.md
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }

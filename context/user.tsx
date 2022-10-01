@@ -44,8 +44,6 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     });
   }, []);
 
-  console.log({ user });
-
   useEffect(() => {
     fetch('/api/set-supabase-cookie', {
       method: 'POST',
@@ -97,7 +95,9 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
     isLoading,
   };
 
-  return <UserContext.Provider value={exposed}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={exposed}>{children}</UserContext.Provider>
+  );
 };
 
 export const useUser = () => {

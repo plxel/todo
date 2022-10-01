@@ -19,12 +19,15 @@ export const NavBar = () => {
     },
   ];
 
-  const end = isLoading ? null : user ? (
-    <Button onClick={logout} className="p-button-text">
-      Logout
-    </Button>
-  ) : (
-    <Button onClick={loginWithGoogle}>Login</Button>
-  );
-  return <Menubar model={items} end={end} />;
+  const end = user
+    ? (
+      <Button onClick={logout} className="p-button-text">
+        Logout
+      </Button>
+    )
+    : (
+      <Button onClick={loginWithGoogle}>Login</Button>
+    );
+
+  return <Menubar model={items} end={isLoading ? null : end} />;
 };

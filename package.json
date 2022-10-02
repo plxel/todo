@@ -12,21 +12,27 @@
     "check-format": "prettier --check .",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "prettier --write .",
-    "test-all": "npm run check-format && npm run check-lint && npm run check-types"
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types",
+    "extract:i18n": "formatjs extract '{pages,components,context}/**/*.{js,ts,tsx}' --format simple --id-interpolation-pattern '[sha512:contenthash:base64:6]' --out-file content/locales/en.json",
+    "compile:i18n": "formatjs compile-folder --ast --format simple content/locales content/compiled-locales",
+    "i18n": "npm run extract:i18n && npm run compile:i18n"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.35.6",
     "next": "12.3.0",
     "primereact": "^8.6.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-intl": "^6.1.2"
   },
   "devDependencies": {
+    "@formatjs/cli": "^5.1.1",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
+    "babel-plugin-formatjs": "^10.3.29",
     "eslint": "^8.24.0",
     "eslint-config-next": "12.3.0",
     "eslint-config-prettier": "^8.5.0",

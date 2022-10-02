@@ -32,9 +32,8 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
           ...sessionUser,
           ...profile,
         });
-
-        setIsLoading(false);
       }
+      setIsLoading(false);
     };
 
     getUserProfile();

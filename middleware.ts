@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server';
 
-const PUBLIC_FILE = /\.(.*)$/
+const PUBLIC_FILE = /\.(.*)$/;
 
 export async function middleware(req: NextRequest) {
   if (
@@ -8,10 +8,12 @@ export async function middleware(req: NextRequest) {
     req.nextUrl.pathname.includes('/api/') ||
     PUBLIC_FILE.test(req.nextUrl.pathname)
   ) {
-    return
+    return;
   }
 
   if (req.nextUrl.locale === 'default') {
-    return NextResponse.redirect(new URL(`/en${req.nextUrl.pathname}`, req.url))
+    return NextResponse.redirect(
+      new URL(`/en${req.nextUrl.pathname}`, req.url),
+    );
   }
 }

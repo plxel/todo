@@ -1,6 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 import Link from 'next/link';
-import { Card } from 'primereact/card';
+import { Card } from '../../ui/Card';
 import { Goal } from '../../models/goal';
 import s from './styles.module.css';
 

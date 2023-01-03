@@ -1,8 +1,9 @@
 import { FormattedMessage } from 'react-intl';
 import Link from 'next/link';
-import { Avatar } from 'primereact/avatar';
-import { Card } from 'primereact/card';
 import { Profile } from '../../models/profile';
+import { Avatar } from '../../ui/Avatar';
+import { Card } from '../../ui/Card';
+
 import s from './styles.module.css';
 
 interface Props {

@@ -1,12 +1,10 @@
-import 'primereact/resources/themes/lara-light-purple/theme.css';
-import 'primereact/resources/primereact.min.css';
-import '../styles/globals.css';
+import '../styles/styles';
 import { useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { UserProvider } from '../context/user';
-import enLocales from '../content/compiled-locales/en.json';
+import enLocales from '../../content/compiled-locales/en.json';
 import { AppLayout } from '../components/layouts/AppLayout';
 
 function MyApp({ Component, pageProps }: AppProps) {

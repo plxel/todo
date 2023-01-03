@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import type { MenuItem } from 'primereact';
-import { Button } from 'primereact/button';
 import { Menubar } from 'primereact/menubar';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useUser } from '../../../context/user';
+import { Button } from '../../../ui/Button';
 
 import s from './styles.module.css';
 

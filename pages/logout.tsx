@@ -7,7 +7,7 @@ const Logout = () => {
   useEffect(() => {
     logout();
   }, [logout]);
-  
+
   return <p>Logging out</p>;
 };
 

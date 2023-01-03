@@ -31,8 +31,20 @@ export const NavBar = () => {
       </Button>
     )
     : (
-      <Button onClick={loginWithGoogle}><FormattedMessage defaultMessage="Login" /></Button>
+      <Button onClick={loginWithGoogle}>
+        <FormattedMessage defaultMessage="Login" />
+      </Button>
     );
 
-  return <Menubar start={<div className={s.logo}><Link href="/">TODO</Link></div>} model={items} end={isLoading ? null : end} />;
+  return (
+    <Menubar
+      start={
+        <div className={s.logo}>
+          <Link href="/">TODO</Link>
+        </div>
+      }
+      model={items}
+      end={isLoading ? null : end}
+    />
+  );
 };
